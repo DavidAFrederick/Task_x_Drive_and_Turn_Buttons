@@ -8,16 +8,18 @@ from autodrivexwheelcounts import AutoDriveXWheelCounts
 from drivetrainsubsys import DriveTrain
 from ledsubsystem import LEDSubsystem
 
-from setledgreen import SetLEDRed
+from setledred import SetLEDRed
 from setledblue import SetLEDBlue
 
 
 class CommandGroup1(commands2.SequentialCommandGroup):
-   def __init__(self, drivetrainsubsys: DriveTrain) -> None:
+   def __init__(self, drivetrainsubsys: DriveTrain, ledsubsystem: LEDSubsystem) -> None:
        super().__init__()
        print ("Running Command Group 1")
        wheelCount = 10   # Wheel count for the side of the square
        self.drivetrainsubsys = drivetrainsubsys
+       self.ledsubsystem = ledsubsystem
+
 
        self.addCommands(SetLEDRed(self.ledsubsystem)) 
 
