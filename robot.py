@@ -10,6 +10,7 @@ from autoturnxdegrees import AutoTurnXDegrees
 from autocommandgroup import AutonomousCommandGroup
 from commandgroup1 import CommandGroup1
 from commandgroup2 import CommandGroup2
+from commandgroup3 import CommandGroup3
 
 
 from typing import Tuple, List
@@ -42,7 +43,7 @@ class MyRobot(TimedCommandRobot):
    def __configure_button_bindings(self) -> None:
        
        button.JoystickButton(self.controller,1).onTrue(
-           CommandGroup1(self.drivetrainSubSys, self.ledSubSys)
+           CommandGroup3(self.drivetrainSubSys, self.ledSubSys)
            )
 
        button.JoystickButton(self.controller,2).onTrue(
@@ -89,6 +90,7 @@ class MyRobot(TimedCommandRobot):
 
 
    def teleopPeriodic(self):
+       
        """This function is called periodically during teleoperated mode."""
        # Xaxis = self.controller.getRawAxis(0)
        # Yaxis = self.controller.getRawAxis(1)

@@ -20,6 +20,7 @@ class WaitXSeconds(Command):
    def execute(self):
        self.drivetrain.drive_teleop(0.0, 0.0)
        self.counter = self.counter - 1
+       print ("delaying")
 
 
    def isFinished(self) -> bool:

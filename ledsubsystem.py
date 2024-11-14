@@ -53,22 +53,35 @@ class LEDSubsystem(commands2.SubsystemBase):
        self.LED.setData(self.ledData)
 
    def setColorGreen(self):
+       print ("Setting Green 1")
         # Loop thru the array and load it with color.  In this case a changing Green
        for i in range(self.kLEDBuffer):
-           hue = 240  #  240 is green, 120 is blue, 0 is red
+           hue = 240 #  240 is green, 120 is blue, 0 is red
            self.ledData[i].setHSV(int(hue), 255, 128)
+           print ("G")
        self.LED.setData(self.ledData)
+       print ("Setting Green 2")
+
 
    def setColorRed(self):
+       print ("Setting Red 1")
+
         # Loop thru the array and load it with color.  In this case a changing Green
        for i in range(self.kLEDBuffer):
            hue = 0  #  240 is green, 120 is blue, 0 is red
            self.ledData[i].setHSV(int(hue), 255, 128)
+           print ("R")
        self.LED.setData(self.ledData)
+       print ("Setting Red")
+
 
    def setColorBlue(self):
+       print ("Setting Blue 1")
+
         # Loop thru the array and load it with color.  In this case a changing Green
        for i in range(self.kLEDBuffer):
            hue = 120  #  240 is green, 120 is blue, 0 is red
            self.ledData[i].setHSV(int(hue), 255, 128)
        self.LED.setData(self.ledData)
+       print ("Setting Blue")
+

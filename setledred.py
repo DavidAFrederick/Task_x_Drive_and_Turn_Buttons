@@ -13,10 +13,10 @@ class SetLEDRed(commands2.CommandBase):
        pass       #  This function is not being used.
 
    def execute(self) -> None:
-       self.led.setColorRed
+       self.led.setColorRed()
 
    def end(self, interrupted: bool) -> None:
        pass       #  This function is not being used.
 
    def isFinished(self) -> bool:
-       return False
+       return True

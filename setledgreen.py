@@ -19,4 +19,4 @@ class SetLEDGreen(commands2.CommandBase):
        pass       #  This function is not being used.
 
    def isFinished(self) -> bool:
-       return False
+       return True
