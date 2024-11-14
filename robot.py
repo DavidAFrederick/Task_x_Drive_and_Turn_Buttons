@@ -1,11 +1,15 @@
 import wpilib
 from drivetrainsubsys import DriveTrain
+from ledsubsystem import LEDSubsystem
+
 from teleopdrivecmd import TeleopDrive
 from commands2 import Command, RunCommand, TimedCommandRobot, button
 # from autodrivexseconds import AutoDriveXSeconds
 from autodrivexwheelcounts import AutoDriveXWheelCounts
 from autoturnxdegrees import AutoTurnXDegrees
 from autocommandgroup import AutonomousCommandGroup
+from commandgroup1 import CommandGroup1
+from commandgroup2 import CommandGroup2
 
 
 from typing import Tuple, List
@@ -21,6 +25,7 @@ class MyRobot(TimedCommandRobot):
 
        # Instantiate (create) subsystems
        self.drivetrainSubSys: DriveTrain = DriveTrain()
+       self.ledSubSys : LEDSubsystem = LEDSubsystem()
        self.controller = wpilib.Joystick(0)
 
 
@@ -35,25 +40,31 @@ class MyRobot(TimedCommandRobot):
 
 
    def __configure_button_bindings(self) -> None:
+       
        button.JoystickButton(self.controller,1).onTrue(
+           CommandGroup1(self.drivetrainSubSys, self.ledSubSys)
+           )
+
+       button.JoystickButton(self.controller,2).onTrue(
+           CommandGroup2(self.drivetrainSubSys,self.ledSubSys)
+           )
+
+
+       button.JoystickButton(self.controller,3).onTrue(
            AutoDriveXWheelCounts(self.drivetrainSubSys, 1, 0.3)
            )
 
-
-       button.JoystickButton(self.controller,2).onTrue(
+       button.JoystickButton(self.controller,4).onTrue(
            AutoTurnXDegrees(self.drivetrainSubSys, 30, 0.3)
            )
-
 
    def configure_default_commands(self) -> None:
        self.drivetrainSubSys.setDefaultCommand(
            TeleopDrive(self.drivetrainSubSys, self.controller)
            )
 
-
    def getAutonomousCommand(self) -> Command:
        return AutonomousCommandGroup(self.drivetrainSubSys)
-
 
    def autonomousInit(self):
        """This function is run once each time the robot enters autonomous mode."""
