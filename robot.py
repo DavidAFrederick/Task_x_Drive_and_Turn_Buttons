@@ -59,17 +59,19 @@ class MyRobot(TimedCommandRobot):
        button.JoystickButton(self.controller,4).onTrue(
            AutoTurnXDegrees(self.drivetrainSubSys, 30, 0.3)
            )
-       button.JoystickButton(self.buttonBox,1).onTrue(
-           CommandGroup4(self.drivetrainSubSys, self.ledSubSys)
-           )
-       button.JoystickButton(self.buttonBox,2).onTrue(
-           CommandGroup5(self.drivetrainSubSys, self.ledSubSys)
-           )
+       
+    #    Added Button Box Capability.  (Comment out if not used)
+#        button.JoystickButton(self.buttonBox,1).onTrue(
+#            CommandGroup4(self.drivetrainSubSys, self.ledSubSys)
+#            )
+#        button.JoystickButton(self.buttonBox,2).onTrue(
+#            CommandGroup5(self.drivetrainSubSys, self.ledSubSys)
+#            )
 
-   def configure_default_commands(self) -> None:
-       self.drivetrainSubSys.setDefaultCommand(
-           TeleopDrive(self.drivetrainSubSys, self.controller)
-           )
+#    def configure_default_commands(self) -> None:
+#        self.drivetrainSubSys.setDefaultCommand(
+#            TeleopDrive(self.drivetrainSubSys, self.controller)
+#            )
        
        
 

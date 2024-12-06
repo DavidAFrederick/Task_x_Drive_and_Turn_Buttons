@@ -31,4 +31,4 @@ class CommandGroup4(commands2.SequentialCommandGroup):
       #  self.addCommands(AutoTurnXDegrees(self.drivetrainsubsys,-90, 0.3))  
 
        self.addCommands(SetLEDBlue(self.ledsubsystem)) 
-       self.addCommands(PrintCommand("Done Command Group 3"))
+       self.addCommands(PrintCommand("Done Command Group 4"))
