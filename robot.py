@@ -11,7 +11,8 @@ from autocommandgroup import AutonomousCommandGroup
 from commandgroup1 import CommandGroup1
 from commandgroup2 import CommandGroup2
 from commandgroup3 import CommandGroup3
-
+from commandgroup4 import CommandGroup4
+from commandgroup5 import CommandGroup5
 
 from typing import Tuple, List
 
@@ -28,6 +29,7 @@ class MyRobot(TimedCommandRobot):
        self.drivetrainSubSys: DriveTrain = DriveTrain()
        self.ledSubSys : LEDSubsystem = LEDSubsystem()
        self.controller = wpilib.Joystick(0)
+       self.buttonBox = wpilib.Joystick(1)
 
 
        self.__configure_button_bindings()
@@ -57,11 +59,19 @@ class MyRobot(TimedCommandRobot):
        button.JoystickButton(self.controller,4).onTrue(
            AutoTurnXDegrees(self.drivetrainSubSys, 30, 0.3)
            )
+       button.JoystickButton(self.buttonBox,1).onTrue(
+           CommandGroup4(self.drivetrainSubSys, self.ledSubSys)
+           )
+       button.JoystickButton(self.buttonBox,2).onTrue(
+           CommandGroup5(self.drivetrainSubSys, self.ledSubSys)
+           )
 
    def configure_default_commands(self) -> None:
        self.drivetrainSubSys.setDefaultCommand(
            TeleopDrive(self.drivetrainSubSys, self.controller)
            )
+       
+       
 
    def getAutonomousCommand(self) -> Command:
        return AutonomousCommandGroup(self.drivetrainSubSys)
