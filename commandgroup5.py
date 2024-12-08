@@ -17,7 +17,7 @@ class CommandGroup5(commands2.SequentialCommandGroup):
    def __init__(self, drivetrainsubsys: DriveTrain, ledsubsystem: LEDSubsystem) -> None:
        super().__init__()
        print ("Running Command Group 5")
-       wheelCount = 10   # Wheel count for the side of the square
+       wheelCount = 2   # Wheel count for the side of the square
        self.drivetrainsubsys = drivetrainsubsys
        self.ledsubsystem = ledsubsystem
 
@@ -26,9 +26,9 @@ class CommandGroup5(commands2.SequentialCommandGroup):
       # Turn the LEDs green
        self.addCommands(SetLEDGreen(self.ledsubsystem)) 
 
-      #  self.addCommands(AutoDriveXWheelCounts(self.drivetrainsubsys, wheelCount, 0.3))  
+       self.addCommands(AutoDriveXWheelCounts(self.drivetrainsubsys, wheelCount, 0.3))  
        self.addCommands(WaitXSeconds(self.drivetrainsubsys,1))
-      #  self.addCommands(AutoTurnXDegrees(self.drivetrainsubsys,-90, 0.3))  
+       self.addCommands(AutoTurnXDegrees(self.drivetrainsubsys,90, 0.3))  
 
        self.addCommands(SetLEDBlue(self.ledsubsystem)) 
        self.addCommands(PrintCommand("Done Command Group 5"))

@@ -61,17 +61,17 @@ class MyRobot(TimedCommandRobot):
            )
        
     #    Added Button Box Capability.  (Comment out if not used)
-#        button.JoystickButton(self.buttonBox,1).onTrue(
-#            CommandGroup4(self.drivetrainSubSys, self.ledSubSys)
-#            )
-#        button.JoystickButton(self.buttonBox,2).onTrue(
-#            CommandGroup5(self.drivetrainSubSys, self.ledSubSys)
-#            )
+       button.JoystickButton(self.buttonBox,1).onTrue(
+           CommandGroup4(self.drivetrainSubSys, self.ledSubSys)
+           )
+       button.JoystickButton(self.buttonBox,2).onTrue(
+           CommandGroup5(self.drivetrainSubSys, self.ledSubSys)
+           )
 
-#    def configure_default_commands(self) -> None:
-#        self.drivetrainSubSys.setDefaultCommand(
-#            TeleopDrive(self.drivetrainSubSys, self.controller)
-#            )
+   def configure_default_commands(self) -> None:
+       self.drivetrainSubSys.setDefaultCommand(
+           TeleopDrive(self.drivetrainSubSys, self.controller)
+           )
        
        
 
