@@ -24,11 +24,11 @@ class CommandGroup4(commands2.SequentialCommandGroup):
 
 
       # Turn the LEDs green
-       self.addCommands(SetLEDRed(self.ledsubsystem)) 
-
-       self.addCommands(AutoDriveXWheelCounts(self.drivetrainsubsys, wheelCount, 0.3))  
-       self.addCommands(WaitXSeconds(self.drivetrainsubsys,1))
-       self.addCommands(AutoTurnXDegrees(self.drivetrainsubsys,-90, 0.3))  
-
        self.addCommands(SetLEDBlue(self.ledsubsystem)) 
+
+    #    self.addCommands(AutoDriveXWheelCounts(self.drivetrainsubsys, wheelCount, 0.3))  
+    #    self.addCommands(WaitXSeconds(self.drivetrainsubsys,1))
+    #    self.addCommands(AutoTurnXDegrees(self.drivetrainsubsys,-90, 0.3))  
+
+    #    self.addCommands(SetLEDBlue(self.ledsubsystem)) 
        self.addCommands(PrintCommand("Done Command Group 4"))

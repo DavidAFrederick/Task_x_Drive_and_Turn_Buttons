@@ -13,6 +13,8 @@ from commandgroup2 import CommandGroup2
 from commandgroup3 import CommandGroup3
 from commandgroup4 import CommandGroup4
 from commandgroup5 import CommandGroup5
+from commandgroup6 import CommandGroup6
+from commandgroup7 import CommandGroup7
 
 from typing import Tuple, List
 
@@ -66,6 +68,13 @@ class MyRobot(TimedCommandRobot):
            )
        button.JoystickButton(self.buttonBox,2).onTrue(
            CommandGroup5(self.drivetrainSubSys, self.ledSubSys)
+           )
+
+       button.JoystickButton(self.buttonBox,3).onTrue(
+           CommandGroup6(self.drivetrainSubSys, self.ledSubSys)
+           )
+       button.JoystickButton(self.buttonBox,4).onTrue(
+           CommandGroup7(self.drivetrainSubSys, self.ledSubSys)
            )
 
    def configure_default_commands(self) -> None:
